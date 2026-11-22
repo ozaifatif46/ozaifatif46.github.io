@@ -55,6 +55,12 @@
 
     nav a { color: var(--text); }
     nav a:hover { color: var(--accent); }
+    nav a:focus-visible,
+    .btn:focus-visible,
+    .contact-links a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
 
     .hero {
       min-height: 65vh;
@@ -160,6 +166,17 @@
       border-radius: 30px;
     }
 
+    .contact-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .contact-links p {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
     footer {
       text-align: center;
       padding: 25px;
@@ -168,18 +185,101 @@
     }
 
     @media (max-width: 600px) {
-      nav { position: static; }
+      nav {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 6%;
+      }
 
       nav .links {
-        gap: 12px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      nav .links a {
+        display: block;
+        padding: 8px 10px;
+        border: 1px solid #29344b;
+        border-radius: 8px;
+        text-align: center;
         font-size: 14px;
       }
 
-      section { padding: 35px 6%; }
+      section {
+        padding: 38px 6%;
+      }
 
       .hero {
         padding: 65px 6%;
         min-height: 50vh;
+      }
+
+      .avatar {
+        width: 82px;
+        height: 82px;
+        font-size: 30px;
+      }
+
+      h1 {
+        font-size: clamp(34px, 12vw, 48px);
+        overflow-wrap: anywhere;
+      }
+
+      h2 {
+        font-size: clamp(25px, 8vw, 30px);
+      }
+
+      .hero h3 {
+        font-size: 17px;
+        line-height: 1.45;
+      }
+
+      .hero p {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .skills {
+        gap: 8px;
+      }
+
+      .skill {
+        max-width: 100%;
+        padding: 8px 13px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      nav strong {
+        font-size: 14px;
+      }
+
+      nav .links {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+        padding-bottom: 48px;
       }
     }
   </style>
@@ -293,43 +393,49 @@
 
     <section id="projects">
 
-      <h2>Academic <span>Projects & Labs</span></h2>
+      
+<section id="projects">
+  <h2>Academic <span>Projects & Labs</span></h2>
 
-      <p class="muted">
-        My coursework and practical laboratory activities.
-        The following entries will be updated with three
-        completed CS-117 projects or labs.
+  <p class="muted">
+    Practical laboratory work from my CS-117
+    Applications of ICT course at NUST.
+  </p>
+
+  <div class="cards">
+
+    <article class="card">
+      <h3>Lab 02 - Data & Encoding with CyberChef</h3>
+      <p>
+        Explored binary and hexadecimal conversions,
+        Base64 encoding, file signatures, SHA-256 hashing
+        and data decoding using CyberChef.
       </p>
+    </article>
 
-      <div class="cards">
+    <article class="card">
+      <h3>Lab 03 - Disks, Partitions & Boot in Kali</h3>
+      <p>
+        Analyzed disk partitions, MBR/GPT structures
+        and boot sectors using Kali Linux, GParted
+        and GHex, and explored deleted-file recovery
+        using Autopsy.
+      </p>
+    </article>
 
-        <article class="card">
-          <h3>CS-117 Lab Project 1</h3>
-          <p>
-            Add the title and one-line description of
-            your first completed CS-117 lab.
-          </p>
-        </article>
+    <article class="card">
+      <h3>Lab 04 - Credential Dumping & Cracking</h3>
+      <p>
+        Studied password security in authorized lab
+        environments using John the Ripper, Hashcat
+        and Windows credential-analysis tools to
+        understand weak passwords and defensive controls.
+      </p>
+    </article>
 
-        <article class="card">
-          <h3>CS-117 Lab Project 2</h3>
-          <p>
-            Add the title and one-line description of
-            your second completed CS-117 lab.
-          </p>
-        </article>
+  </div>
+</section>
 
-        <article class="card">
-          <h3>CS-117 Lab Project 3</h3>
-          <p>
-            Add the title and one-line description of
-            your third completed CS-117 lab.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
 
     <section id="contact">
 
@@ -340,34 +446,36 @@
         discussions, programming, and technology projects.
       </p>
 
-      <p>
-        <strong>GitHub:</strong>
-        <a
-          href="https://github.com/ozaifatif46"
-          target="_blank"
-          rel="noopener noreferrer">
-          github.com/ozaifatif46
-        </a>
-      </p>
+      <div class="contact-links">
+        <p>
+          <strong>GitHub:</strong>
+          <a
+            href="https://github.com/ozaifatif46"
+            target="_blank"
+            rel="noopener noreferrer">
+            github.com/ozaifatif46
+          </a>
+        </p>
 
-      <p>
-        <strong>Portfolio:</strong>
-        <a href="https://ozaifatif46.github.io">
-          ozaifatif46.github.io
-        </a>
-      </p>
+        <p>
+          <strong>Portfolio:</strong>
+          <a href="https://ozaifatif46.github.io">
+            ozaifatif46.github.io
+          </a>
+        </p>
 
-      <p>
-        <strong>LinkedIn:</strong>
-        Add your LinkedIn profile URL here
-      </p>
+        <p>
+          <strong>LinkedIn:</strong>
+          Add your LinkedIn profile URL here
+        </p>
 
-      <p>
-        <strong>Email:</strong>
-        <a href="mailto:mianozaif724@gmail.com">
-          mianozaif724@gmail.com
-        </a>
-      </p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:mianozaif724@gmail.com">
+            mianozaif724@gmail.com
+          </a>
+        </p>
+      </div>
 
     </section>
 
